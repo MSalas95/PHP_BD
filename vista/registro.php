@@ -101,7 +101,7 @@
 
 	<script type="text/javascript">
 
-		swal({   title: "Are you sure?",   
+		/*swal({   title: "Are you sure?",   
 			text: "You will not be able to recover this imaginary file!",   
 			type: "warning",   
 			showCancelButton: true,  
@@ -109,7 +109,7 @@
 			confirmButtonText: "Yes, delete it!",   
 			closeOnConfirm: false }, 
 			function(){   
-			swal("Deleted!", "Your imaginary file has been deleted.", "success"); });
+			swal("Deleted!", "Your imaginary file has been deleted.", "success"); });*/
 
 	</script>
 	

@@ -28,6 +28,19 @@
 			$this->insertarTecnico($tecnico);
 		}
 
+		public function login($cedula,$clave){
+			$sql = "SELECT * FROM tecnico where cedula= '".$cedula."' and clave= '".$clave."'";
+			$con = $this->conectar();
+			$user = mysqli_query($con,$sql);
+
+			if ($row = mysqli_fetch_array($user)) {
+				echo "Login realizado";
+			} else {
+				echo "Datos invalidos";
+			}
+
+		}
+
 
 	}
 

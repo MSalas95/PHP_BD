@@ -20,22 +20,22 @@
 			<div class="cuerpo-login">
 				<h2>Iniciar sesi&oacute;n</h2>
 
-				<form class="form-login" role="form">
+				<form class="form-login" method="post">
 			        <!-- <h2 class="form-login-heading">Iniciar sesion</h2> -->
 			        <div class="form-group">
 			        	<label for="inputCed" class="sr-only">Cedula</label>
-			        	<input type="text" id="inputCed" class="form-control" placeholder="Cedula" pattern="([0-9])*$" min="6" max="8" required autofocus>
+			        	<input type="text" name="inputCed" class="form-control" placeholder="Cedula" pattern="([0-9])*$" min="6" max="8" required autofocus>
 			        </div>
 			        
 			        <div class="form-group">
 			        	<label for="inputPassword" class="sr-only">Contraseña</label>
-			        	<input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+			        	<input type="password" name="inputPassword" class="form-control" placeholder="Contraseña" required>
 			        </div>
 
 			      
 		        	<div class="recordar">
 		        		<div class="checkbox checkbox-primary">				            
-			                <input type="checkbox" id="cb1">
+			                <input type="checkbox" name="cb1">
 			            	<label for="cb1">Recordar</label>
 		        		</div>
 		        	</div>
@@ -47,7 +47,7 @@
 				        		<a href="registro.php"><button type="button" class="btn btn-danger" >Registrarse</button></a>
 				        	</div>
 				        	<div class="col-md-6">
-				        		<input type="submit" value="Aceptar" class="btn btn-primary">
+				        		<input type="submit" name="enviar" value="Aceptar" class="btn btn-primary">
 				        	</div>
 				        </div>
 			        	 
@@ -56,7 +56,18 @@
 			        
 	      		</form>
 
-	      			
+	      		<?php 
+	      			if (isset($_POST['enviar'])){
+
+						include '../controlador/OperacionesBD.php';
+						$operacionesBD = new OperacionesBD();
+						$cedula = $_POST['inputCed'];
+						$clave = $_POST['inputPassword'];
+						$operacionesBD->login($cedula,$clave);
+						
+	      			}
+
+	      		 ?>	
 
 			</div>
 			
